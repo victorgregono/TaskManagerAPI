@@ -18,7 +18,7 @@ Content-Type: application/json
 
 {
   "nome": "Novo Usuario",
-  "funcao": "hfgdhgfhdgfjdhfjdhfjdhjfdjfhjdhfjidhfjihdjfhdjfhjdgfidhfjgdinfhdjhfjdfjgdhfgdhgfhdgf"
+  "funcao": "diretor"
 }
 
 ###
@@ -29,7 +29,8 @@ Content-Type: application/json
 
 {
   "id": 1,
-  "nome": "Usuario Atualizado"
+  "nome": "Usuario Atualizado",
+  "funcao": "nova funcao"
 }
 
 ###
@@ -40,7 +41,7 @@ Accept: application/json
 
 ###
 
-### Get all projects for a user
+### Get all projects
 GET {{TaskManagerAPI_HostAddress}}/api/projeto
 Accept: application/json
 
@@ -118,6 +119,8 @@ Accept: application/json
 
 ###
 
+### Get performance report
 GET {{TaskManagerAPI_HostAddress}}/api/tarefa/relatorio-desempenho
+Accept: application/json
 
 ###
