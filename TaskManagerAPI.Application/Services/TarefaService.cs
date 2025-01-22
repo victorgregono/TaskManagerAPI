@@ -159,13 +159,9 @@ namespace TaskManager.Application.Services
 
             var user = _httpContextAccessor.HttpContext.User;
             if (!user.IsInRole("Admin"))
-            {
-                return Error("Acesso negado. Apenas administradores podem acessar este recurso.", HttpStatusCode.BadRequest);
+                return Error("Acesso negado. Apenas administradores podem acessar este recurso.", HttpStatusCode.Unauthorized);
 
 
-                //return Error("Authorization", "Acesso negado. Apenas administradores podem acessar este recurso.", HttpStatusCode.Forbidden);
-
-            }
 
 
             var desempenhos = await _repository.GetPerformanceReport();

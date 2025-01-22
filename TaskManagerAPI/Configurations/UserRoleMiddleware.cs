@@ -15,19 +15,27 @@ namespace TaskManagerAPI.Middlewares
 
         public async Task InvokeAsync(HttpContext context)
         {
-            if (context.Request.Headers.TryGetValue("X-User-Role", out var role))
-            {
-                var claims = new List<Claim> { new Claim(ClaimTypes.Role, role) };
-                var identity = new ClaimsIdentity(claims, "Custom");
-                context.User = new ClaimsPrincipal(identity);
-            }
-            else
-            {
-                // Adicionar uma reivindicação de função padrão se o cabeçalho não estiver presente
-                var claims = new List<Claim> { new Claim(ClaimTypes.Role, "Guest") };
-                var identity = new ClaimsIdentity(claims, "Custom");
-                context.User = new ClaimsPrincipal(identity);
-            }
+            //if (context.Request.Headers.TryGetValue("X-User-Role", out var role))
+            //{
+            //    var claims = new List<Claim> { new Claim(ClaimTypes.Role, role) };
+            //    var identity = new ClaimsIdentity(claims, "Custom");
+            //    context.User = new ClaimsPrincipal(identity);
+            //}
+            //else
+            //{
+            //    // Adicionar uma reivindicação de função padrão se o cabeçalho não estiver presente
+            //    var claims = new List<Claim> { new Claim(ClaimTypes.Role, "Guest") };
+            //    var identity = new ClaimsIdentity(claims, "Custom");
+            //    context.User = new ClaimsPrincipal(identity);
+            //}
+
+
+            var role = context.Request.Headers.TryGetValue("X-User-Role", out var userRole) ? userRole.ToString() : "Guest";
+            var claims = new List<Claim> { new Claim(ClaimTypes.Role, role) };
+            var identity = new ClaimsIdentity(claims, "Custom");
+            context.User = new ClaimsPrincipal(identity);
+
+
 
             await _next(context);
         }
