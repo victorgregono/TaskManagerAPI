@@ -28,6 +28,14 @@ Este projeto oferece uma API para gerenciamento de tarefas com funcionalidades p
 - Controlador: `TaskManagerController`
 
 ```csharp
+/// <summary>
+/// Gera relatórios de desempenho, como o número médio de tarefas concluídas
+/// por usuário nos últimos 30 dias.
+/// </summary>
+/// <returns>Relatório de desempenho dos usuários.</returns>
+/// <response code="200">Retorna o relatório de desempenho.</response>
+/// <response code="403">Acesso negado. Apenas usuários com a função de "gerente" podem acessar este endpoint.</response>
+/// <response code="500">Erro interno do servidor.</response>
 [HttpGet("relatorio-desempenho")]
 [Authorize(Policy = "AdminPolicy")]
 [ProducesResponseType(typeof(IEnumerable<object>), 200)]
