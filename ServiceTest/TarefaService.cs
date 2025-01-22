@@ -262,7 +262,7 @@ namespace ServiceTest
 
             // Assert
             result.IsValid.Should().BeFalse();
-            result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            result.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
         }
 
         [Fact]
