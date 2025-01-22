@@ -49,7 +49,7 @@ Este endpoint é protegido e requer autenticação usando uma política de segur
 2. Crie uma nova requisição GET com a URL:
 
    ```
-   http://localhost:8080/relatorio-desempenho
+   http://localhost:8080/api/tarefa/relatorio-desempenho
    ```
 
 3. Adicione o cabeçalho:
