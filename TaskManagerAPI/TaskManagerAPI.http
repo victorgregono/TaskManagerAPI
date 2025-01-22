@@ -1,0 +1,123 @@
+@TaskManagerAPI_HostAddress = http://localhost:5291
+
+### Get all users
+GET {{TaskManagerAPI_HostAddress}}/api/usuario
+Accept: application/json
+
+###
+
+### Get user by ID
+GET {{TaskManagerAPI_HostAddress}}/api/usuario/1
+Accept: application/json
+
+###
+
+### Create a new user
+POST {{TaskManagerAPI_HostAddress}}/api/usuario
+Content-Type: application/json
+
+{
+  "nome": "Novo Usuario",
+  "funcao": "hfgdhgfhdgfjdhfjdhfjdhjfdjfhjdhfjidhfjihdjfhdjfhjdgfidhfjgdinfhdjhfjdfjgdhfgdhgfhdgf"
+}
+
+###
+
+### Update an existing user
+PUT {{TaskManagerAPI_HostAddress}}/api/usuario/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "nome": "Usuario Atualizado"
+}
+
+###
+
+### Delete a user
+DELETE {{TaskManagerAPI_HostAddress}}/api/usuario/1
+Accept: application/json
+
+###
+
+### Get all projects for a user
+GET {{TaskManagerAPI_HostAddress}}/api/projeto
+Accept: application/json
+
+###
+
+### Get project by ID
+GET {{TaskManagerAPI_HostAddress}}/api/projeto/1
+Accept: application/json
+
+###
+
+### Create a new project
+POST {{TaskManagerAPI_HostAddress}}/api/projeto
+Content-Type: application/json
+
+{
+  "nome": "Novo Projeto",
+  "usuarioId": 1
+}
+
+###
+
+### Delete a project
+DELETE {{TaskManagerAPI_HostAddress}}/api/projeto/1
+Accept: application/json
+
+###
+
+### Get all tasks for a project
+GET {{TaskManagerAPI_HostAddress}}/api/tarefa/projeto/1
+Accept: application/json
+
+###
+
+### Get task by ID
+GET {{TaskManagerAPI_HostAddress}}/api/tarefa/1
+Accept: application/json
+
+###
+
+### Create a new task
+POST {{TaskManagerAPI_HostAddress}}/api/tarefa
+Content-Type: application/json
+
+{
+  "titulo": "Nova Tarefa",
+  "descricao": "Descrição da tarefa",
+  "dataVencimento": "2023-12-31T23:59:59",
+  "status": 0,
+  "prioridade": 1,
+  "projetoId": 1
+}
+
+###
+
+### Update an existing task
+PUT {{TaskManagerAPI_HostAddress}}/api/tarefa/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "titulo": "Tarefa Atualizada",
+  "descricao": "Descrição atualizada",
+  "dataVencimento": "2023-12-31T23:59:59",
+  "status": 1,
+  "prioridade": 1,
+  "projetoId": 1
+}
+
+###
+
+### Delete a task
+DELETE {{TaskManagerAPI_HostAddress}}/api/tarefa/1
+Accept: application/json
+
+###
+
+GET {{TaskManagerAPI_HostAddress}}/api/tarefa/relatorio-desempenho
+
+###

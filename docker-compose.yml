@@ -1,0 +1,9 @@
+services:
+  taskmanagerapi:
+    image: ${DOCKER_REGISTRY-}taskmanagerapi
+    build:
+      context: .
+      dockerfile: TaskManagerAPI/Dockerfile
+    ports:
+      - "8080:8080"  # Mapeia a porta 8080 do container para a porta 8080 do host
+      - "8081:8081"  # Mapeia a porta 8081 do container para a porta 8081 do host
